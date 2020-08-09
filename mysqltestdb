@@ -1,0 +1,142 @@
+drop database if exists serajdb;
+create database serajdb;
+use serajdb;
+create table student(
+id int,
+name varchar(100),
+city varchar(100),
+phone varchar(100),
+address varchar(100),
+PRIMARY KEY (id)) ENGINE=INNODB;
+
+create table teachers(
+id int,
+student_id int,
+name varchar(100),
+project_title varchar(100),
+PRIMARY KEY(id),
+FOREIGN KEY (student_id) REFERENCES  student(id) 
+ON UPDATE CASCADE ON DELETE RESTRICT
+)ENGINE=INNODB;
+create table course(
+id int,
+title varchar(100),
+start date,
+classtime time,
+PRIMARY KEY (id));
+create table studentcourse(
+id int,
+student_id int,
+course_id int,
+mark float,
+sem int,
+PRIMARY KEY (id),
+FOREIGN KEY (student_id) REFERENCES  student(id) 
+ON UPDATE CASCADE ON DELETE RESTRICT,
+FOREIGN KEY (course_id) REFERENCES  course(id) 
+ON UPDATE CASCADE ON DELETE RESTRICT
+)ENGINE=INNODB;
+
+# ------ inserting data ----------
+insert into student (id,name,city,address,phone)
+values 
+(1,"Hadi","TABRIZ","Abresan ..","0914117"),
+(2,"Reza","TEHRAN","PELAKE 7 ..","0914118"),
+(3,"Gholi","TEHRAN","PELAKE 8 ..","0914119"),
+(4,"Ghamar","SHIRAZ","PELAKE 9 ..","0914120"),
+(5,"Farhad","AHVAZ","PELAKE 10 ..","0914333");
+
+#------- insert to course ---------
+insert into course (id,title,start,classtime)
+values 
+(11,"C++","2020-01-11","11:10:10"),
+(22,"Python","2020-02-22","20:30:00"),
+(33,"Database","2020-03-19","19:30:00"),
+(44,"Network","2020-05-17","17:30:00");
+
+#------ insert to teachers -----------
+insert into teachers (id,student_id,name,project_title)
+values 
+(111,1,"POURREZA","project in python"),
+(222,2,"AKBARI","Web Development"),
+(333,4,"ASGHARI","Mobile APP"),
+(444,5,"AHMADI","Csharp APP");
+
+#------- insert to student course -------
+insert into studentcourse (id,student_id,course_id,sem,mark)
+values 
+(1,1,22,951,19.5),
+drop database if exists serajdb;
+create database serajdb;
+use serajdb;
+create table student(
+id int,
+name varchar(100),
+city varchar(100),
+phone varchar(100),
+address varchar(100),
+PRIMARY KEY (id)) ENGINE=INNODB;
+
+create table teachers(
+id int,
+student_id int,
+name varchar(100),
+project_title varchar(100),
+PRIMARY KEY(id),
+FOREIGN KEY (student_id) REFERENCES  student(id) 
+ON UPDATE CASCADE ON DELETE RESTRICT
+)ENGINE=INNODB;
+create table course(
+id int,
+title varchar(100),
+start date,
+classtime time,
+PRIMARY KEY (id));
+create table studentcourse(
+id int,
+student_id int,
+course_id int,
+mark float,
+sem int,
+PRIMARY KEY (id),
+FOREIGN KEY (student_id) REFERENCES  student(id) 
+ON UPDATE CASCADE ON DELETE RESTRICT,
+FOREIGN KEY (course_id) REFERENCES  course(id) 
+ON UPDATE CASCADE ON DELETE RESTRICT
+)ENGINE=INNODB;
+
+# ------ inserting data ----------
+insert into student (id,name,city,address,phone)
+values 
+(1,"Hadi","TABRIZ","Abresan ..","0914117"),
+(2,"Reza","TEHRAN","PELAKE 7 ..","0914118"),
+(3,"Gholi","TEHRAN","PELAKE 8 ..","0914119"),
+(4,"Ghamar","SHIRAZ","PELAKE 9 ..","0914120"),
+(5,"Farhad","AHVAZ","PELAKE 10 ..","0914333");
+
+#------- insert to course ---------
+insert into course (id,title,start,classtime)
+values 
+(11,"C++","2020-01-11","11:10:10"),
+(22,"Python","2020-02-22","20:30:00"),
+(33,"Database","2020-03-19","19:30:00"),
+(44,"Network","2020-05-17","17:30:00");
+
+#------ insert to teachers -----------
+insert into teachers (id,student_id,name,project_title)
+values 
+(111,1,"POURREZA","project in python"),
+(222,2,"AKBARI","Web Development"),
+(333,4,"ASGHARI","Mobile APP"),
+(444,5,"AHMADI","Csharp APP");
+
+#------- insert to student course -------
+insert into studentcourse (id,student_id,course_id,sem,mark)
+values 
+(1,1,22,991,19.5),
+(2,2,11,991,17.5),
+(3,1,33,991,16.5),
+(4,3,44,991,10.5),
+(5,5,11,991,9.5);
+ 
+
